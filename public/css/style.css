@@ -1,0 +1,286 @@
+/* resets */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-control, .btn {
+    border-radius: 0;
+    outline: 0;
+}
+
+.modal-header {
+    padding: .5rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.modal-content {
+    border-radius: 0;
+}
+
+.modal-body {
+    padding: 2.5rem 1rem;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.btn:focus, .btn:active {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+select, input {
+    border-radius: 0;
+    outline: 0;
+}
+
+select:not([multiple]) {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-position: right 50%;
+    background-repeat: no-repeat;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+    padding: 3px 6px;
+    padding-right: 1.5em;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* helper classes */
+.outline-0 {
+    outline: 0 !important;
+}
+
+.border-radius-0 {
+    border-radius: 0;
+}
+
+.btn-modal-close {
+    font-size: 28px;
+    padding: 0 9px 3px 9px;
+    margin: 0;
+    color: #7d7b7b;
+    background: #f3f3f3;
+    line-height: 1em;
+    display: inline-block;
+    border-radius: 5px;
+    border: 0;
+    outline: 0 !important;
+}
+
+.btn-modal-close:hover {
+    background: #ececec;
+}
+
+.btn-project-opt {
+    padding: 5px;
+    margin: 0;
+    outline: 0 !important;
+    vertical-align: middle;
+}
+
+.bg-light {
+    background: #dfe4e8 !important;
+}
+
+.bg-light-1 {
+    background: #f1f1f1 !important;
+}
+
+.ml-14px {
+    margin-left: 14px;
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll;
+}
+
+/* sidebar */
+.sidebar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-menu > li.has-dropdwon ul {
+    margin-left: 10px;
+}
+
+.menu-dropdown {
+    margin-left: 20px;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    display: none;
+}
+
+.sidebar-menu li {
+    margin: 10px 0;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #524d4d;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: top;
+    -ms-flex-align: top;
+    align-items: top;
+}
+
+.sidebar-menu a i {
+    display: inline-block;
+    margin-right: 7px;
+    font-size: 20px;
+}
+
+li.has-dropdown.open > .dropdown-title .fa-angle-right {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.group-dropdown {
+    margin-left: 25px;
+}
+
+.sidebarToggle {
+    font-size: 25px;
+    font-weight: 100;
+    border: 0;
+    outline: 0 !important;
+}
+
+/* homepage */
+.recent-groups:last-child .border-bottom-0 {
+    border-bottom: 1px solid #ddd !important;
+}
+
+.table .thead-light th {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ddd;
+    border-bottom: none;
+    border-top: none;
+}
+
+/* form actions */
+.action-btn-area button {
+    max-width: 28px;
+    max-height: 25px;
+    display: block;
+    margin-left: auto;
+}
+
+/* credential */
+.hideEncrypted {
+    padding: 1px 3px;
+    font-size: 10px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+/* exception page */
+.error-status {
+    font-size: 100px;
+    letter-spacing: 10px;
+    font-weight: 800;
+}
+
+.error-type {
+    font-weight: 200;
+}
+
+/* credential page */
+.removeCredRow {
+    width: 46px;
+}
+
+.addCredRow {
+    background: none;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    outline: 0 !important;
+}
+
+@media (max-width: 767.98px) {
+    /* resets */
+    ul.navbar-nav {
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    ul.navbar-nav li a {
+        display: inline-block;
+    }
+
+    li.nav-item.dropdown {
+        text-align: center;
+        display: inline;
+    }
+
+    /* sidebar */
+    .sidebar-container {
+        background: #c8d3dc;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        z-index: 999;
+        bottom: -25px;
+        -webkit-transition: left .5s ease-in-out;
+        -o-transition: left .5s ease-in-out;
+        transition: left .5s ease-in-out;
+        overflow-y: scroll;
+        padding: 8px 22px 50px 22px;
+    }
+
+    .sidebar-container.open {
+        left: 0;
+    }
+
+    .sidebar-close {
+        position: absolute;
+        right: 20px;
+        z-index: 999;
+        font-size: 40px;
+        top: 0;
+        cursor: pointer;
+    }
+
+    .dropdown-menu.show {
+        display: inline-block;
+        text-align: center;
+        width: 55%;
+    }
+
+    /* projects page */
+    .projects {
+        overflow-x: scroll;
+    }
+
+    /* credential page */
+    .cred-item {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+    }
+
+    .cred-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .cred-action {
+        font-size: 13px;
+    }
+}
