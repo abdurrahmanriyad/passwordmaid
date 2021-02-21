@@ -59376,7 +59376,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/primez/Documents/projects/PassMaid/resources/js/project.js */"./resources/js/project.js");
+module.exports = __webpack_require__(/*! /Users/primez/Documents/projects/passwordmaid/resources/js/project.js */"./resources/js/project.js");
 
 
 /***/ })
