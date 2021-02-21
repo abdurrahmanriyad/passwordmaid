@@ -23,9 +23,6 @@ class CreateCredentialsTable extends Migration
             $table->unsignedInteger('credentials_type_id');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('credentials_type_id')->references('id')->on('credential_types')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

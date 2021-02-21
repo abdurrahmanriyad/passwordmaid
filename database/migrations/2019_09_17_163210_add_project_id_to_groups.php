@@ -19,7 +19,6 @@ class AddProjectIdToGroups extends Migration
              * otherwise constraint error occur
              **/
             $table->unsignedInteger('project_id')->default(1);
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

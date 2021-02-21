@@ -15,8 +15,6 @@ class AddUserIdToProjects extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
             $table->unsignedInteger('user_id');
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -28,7 +26,6 @@ class AddUserIdToProjects extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropForeign('user_id');
             $table->dropColumn('user_id');
         });
     }

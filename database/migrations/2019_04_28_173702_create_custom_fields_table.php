@@ -20,8 +20,6 @@ class CreateCustomFieldsTable extends Migration
             $table->unsignedInteger('display_order');
             $table->unsignedInteger('credential_id');
             $table->timestamps();
-
-            $table->foreign('credential_id')->references('id')->on('credentials')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -19,8 +19,6 @@ class CreateCredentialTypesTable extends Migration
             $table->unsignedInteger('credential_icon_id');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('credential_icon_id')->references('id')->on('credential_icons')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -27,9 +27,6 @@ class RemoveGroupProjectTable extends Migration
             $table->unsignedInteger('group_id');
             $table->unsignedInteger('project_id');
             $table->timestamps();
-
-            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,9 +14,7 @@ class RemoveCredentialTypesTable extends Migration
      */
     public function up()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('credential_types');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 
     /**
@@ -31,8 +30,6 @@ class RemoveCredentialTypesTable extends Migration
             $table->unsignedInteger('credential_icon_id');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('credential_icon_id')->references('id')->on('credential_icons')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 }
