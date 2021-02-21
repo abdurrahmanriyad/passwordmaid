@@ -6,7 +6,8 @@ use App\Events\PasswordChanged;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use \App\Mail\PasswordChanged as PasswordChangedMail;
-use Mail;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Mail;
 
 class SendPasswordChangedNotification implements ShouldQueue
 {
@@ -25,6 +26,11 @@ class SendPasswordChangedNotification implements ShouldQueue
      */
     public function handle(PasswordChanged $event)
     {
+        // no confirmation mail require for local
+        if (App::environment('local')) {
+            return false;
+        }
+
         Mail::to($event->changedBy)
             ->send(new PasswordChangedMail());
     }
