@@ -20,7 +20,7 @@ class ChangePasswordController extends Controller
     {
         $data = $this->validate($request, [
             'current_password' => ['required', 'string'],
-            'password' => ['required', 'string', 'min:8', 'confirmed']
+            'password' => ['required', 'string', 'min:6', 'confirmed']
         ]);
 
         if (!$this->isAuthPassword($data['current_password'])) {
