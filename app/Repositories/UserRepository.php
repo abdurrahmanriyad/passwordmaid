@@ -8,7 +8,7 @@ class UserRepository implements \App\Contracts\Repositories\UserRepository
 {
     public function find($id)
     {
-        return User::find($id);
+
     }
 
     public function all()

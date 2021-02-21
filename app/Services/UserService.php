@@ -2,29 +2,30 @@
 
 namespace App\Services;
 
-use App\Repositories\UserRepository;;
+use App\Repositories\UserRepository;
+use App\User;
+
+;
 
 class UserService extends Service
 {
-    private $userRepository = null;
-
-    public function __construct(UserRepository $userRepository)
-    {
-        $this->userRepository = $userRepository;
-    }
+    public function __construct(private UserRepository $userRepository)
+    {}
 
     public function find($id)
     {
-        return $this->userRepository->find($id);
+        return User::find($id);
     }
 
     public function allUsers()
     {
-        return $this->userRepository->all();
+        return User::all();
     }
 
     public function searchUsers($q)
     {
-        return $this->userRepository->search($q);
+        return User::where('name', 'like', "%{$q}%")
+            ->orWhere('email', 'like', "%{$q}%")
+            ->get();
     }
 }
