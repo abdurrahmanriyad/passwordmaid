@@ -2,27 +2,23 @@
 
 namespace App\Services;
 
-use App\Repositories\UserRepository;
+use App\Project;
 use App\User;
-
-;
+use Illuminate\Support\Collection;
 
 class UserService extends Service
 {
-    public function __construct(private UserRepository $userRepository)
-    {}
-
-    public function find($id)
+    public function find($id): User|null
     {
         return User::find($id);
     }
 
-    public function allUsers()
+    public function allUsers(): Collection
     {
         return User::all();
     }
 
-    public function searchUsers($q)
+    public function searchUsers($q): Collection
     {
         return User::where('name', 'like', "%{$q}%")
             ->orWhere('email', 'like', "%{$q}%")
