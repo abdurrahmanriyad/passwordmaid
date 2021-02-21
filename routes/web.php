@@ -1,7 +1,11 @@
 <?php
+
+use App\Mail\GroupShared;
+use Illuminate\Support\Facades\App;
+
 Route::get('mail', function () {
     Mail::to(App\User::where('email', 'riyadbmcb@gmail.com')->first())
-        ->send(new \App\Mail\GroupShared(App\User::where('email', 'riyadbmcb@gmail.com')->first()));
+        ->send(new GroupShared(App\User::where('email', 'riyadbmcb@gmail.com')->first()));
 });
 
 /*
