@@ -11,24 +11,22 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use App\User;
 
-class ProjectService extends Service {
-    private $projectRepository = null;
-    private $groupRepository = null;
-    private $groupService = null;
-
-    public function __construct(ProjectRepository $projectRepository, GroupRepository $groupRepository, GroupService $groupService)
+class ProjectService extends Service
+{
+    public function __construct(
+        private ProjectRepository $projectRepository,
+        private GroupRepository $groupRepository,
+        private GroupService $groupService
+    )
     {
-        $this->projectRepository = $projectRepository;
-        $this->groupRepository = $groupRepository;
-        $this->groupService = $groupService;
     }
 
-    public function getAllProjects()
+    public function getAllProjects(): Collection
     {
         return $this->projectRepository->getAll();
     }
 
-    public function getUserProjects($userId)
+    public function getUserProjects($userId): Collection
     {
         $userProjects = $this->projectRepository->getUserProjects($userId);
         return $userProjects->merge($this->projectRepository->getSharedProjects($userId))->unique();

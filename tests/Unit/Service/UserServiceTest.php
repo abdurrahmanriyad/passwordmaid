@@ -72,9 +72,7 @@ class UserServiceTest extends TestCase
 
         $allUsers = $this->userService->allUsers();
 
-        foreach ($allUsers as $user) {
-            $this->assertInstanceOf(User::class, $user);
-        }
+        $this->isCollectionOf(User::class, $allUsers);
 
         $this->assertCount(5, $allUsers);
     }
