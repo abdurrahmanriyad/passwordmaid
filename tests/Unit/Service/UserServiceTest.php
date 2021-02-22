@@ -6,6 +6,7 @@ use App\Project;
 use App\Services\UserService;
 use App\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class UserServiceTest extends TestCase
@@ -76,5 +77,89 @@ class UserServiceTest extends TestCase
         }
 
         $this->assertCount(5, $allUsers);
+    }
+
+    /** @test */
+    public function can_search_users_by_name()
+    {
+        $count = 1;
+        User::factory()->count(5)->create([
+            'name' => 'Jhon ' . Str::random(3) . " Doe",
+        ]);
+
+        User::factory()->count(10)->create();
+
+        $this->assertCount(15, User::all());
+
+        $searchedUsers = $this->userService->searchUsers('Jhon');
+
+        $this->assertCount(5, $searchedUsers);
+
+        $searchedUsers = $this->userService->searchUsers('Doe');
+
+        $this->assertCount(5, $searchedUsers);
+    }
+
+    /** @test */
+    public function can_search_users_by_name_with_case_sensitivity()
+    {
+        $count = 1;
+        User::factory()->count(5)->create([
+            'name' => 'Jhon ' . Str::random(3) . " Doe",
+        ]);
+
+        User::factory()->count(10)->create();
+
+        $this->assertCount(15, User::all());
+
+        $searchedUsers = $this->userService->searchUsers('jhon');
+
+        $this->assertCount(5, $searchedUsers);
+
+        $searchedUsers = $this->userService->searchUsers('doe');
+
+        $this->assertCount(5, $searchedUsers);
+    }
+
+    /** @test */
+    public function can_search_users_by_email()
+    {
+        $id = 0;
+        User::factory()->count(5)->create()->each(function ($user) use (&$id) {
+            $user->update(['email' => "user_" . $id++ . "@unique.com"]);
+        });
+
+        User::factory()->count(10)->create();
+
+        $this->assertCount(15, User::all());
+
+        $searchedUsers = $this->userService->searchUsers('@unique.com');
+
+        $this->assertCount(5, $searchedUsers);
+
+        $searchedUsers = $this->userService->searchUsers('@unique.com');
+
+        $this->assertCount(5, $searchedUsers);
+    }
+
+    /** @test */
+    public function can_search_users_by_email_without_case_sensitivity()
+    {
+        $id = 0;
+        User::factory()->count(5)->create()->each(function ($user) use (&$id) {
+            $user->update(['email' => "user_" . $id++ . "@unique.com"]);
+        });
+
+        User::factory()->count(10)->create();
+
+        $this->assertCount(15, User::all());
+
+        $searchedUsers = $this->userService->searchUsers('@Unique.com');
+
+        $this->assertCount(5, $searchedUsers);
+
+        $searchedUsers = $this->userService->searchUsers('@Unique.com');
+
+        $this->assertCount(5, $searchedUsers);
     }
 }
